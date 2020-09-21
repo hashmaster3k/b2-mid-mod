@@ -1,0 +1,6 @@
+List of passengers:
+<ul>
+  <% @airline.unique_passenger_list.each do |passenger| %>
+    <li><%= passenger.name %></li>
+  <% end %>
+</ul>
