@@ -16,4 +16,15 @@ RSpec.describe PassengerFlight do
       expect(PassengerFlight.count).to eq(1)
     end
   end
+
+  describe 'Class Methods' do
+    it 'find_specific_passenger_by_flight()' do
+      southwest = Airline.create!(name: 'Southwest Airlines')
+      flight = southwest.flights.create!
+      bob = flight.passengers.create!(name: 'Bob', age: 30)
+      hannah = flight.passengers.create!(name: 'Hanna', age: 32)
+
+      expect(PassengerFlight.find_specific_passenger_by_flight(flight.id, bob.id)).to eq(bob.passenger_flights.first)
+    end
+  end
 end
