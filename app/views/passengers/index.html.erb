@@ -1,0 +1,6 @@
+<% @passengers.each do |passenger| %>
+  <section id="passenger-<%= passenger.id %>">
+    <%= passenger.name %> <br>
+    Flights: <%= passenger.total_flights %>
+  </section>
+<% end %>
