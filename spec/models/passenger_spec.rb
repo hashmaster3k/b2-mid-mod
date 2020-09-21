@@ -4,12 +4,12 @@ RSpec.describe Passenger do
   describe 'validations' do
     it { should validate_presence_of :name }
     it { should validate_presence_of :age }
-
   end
 
-  # describe 'relationships' do
-  #   it { should have_many :flights }
-  # end
+  describe 'relationships' do
+    it { should have_many :passenger_flights }
+    it { should have_many(:flights).through(:passenger_flights) }
+  end
 
   describe 'object creation' do
     it 'can make a new object' do

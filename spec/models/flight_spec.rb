@@ -5,6 +5,11 @@ RSpec.describe Flight do
     it { should belong_to :airline }
   end
 
+  describe 'relationships' do
+    it { should have_many :passenger_flights }
+    it { should have_many(:passengers).through(:passenger_flights) }
+  end
+
   describe 'object creation' do
     it 'can make a new object' do
       swa = Airline.create!(name: 'Southwest Airlines')
